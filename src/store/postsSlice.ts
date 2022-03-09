@@ -16,12 +16,9 @@ const postSlice = createSlice({
       });
     },
     likePost(state: { posts: IPosts[] }, action: any): void {
-      const index = action.payload.index;
-      const isLike = state.posts[index].likes.find((name) => name === action.payload.user.name);
+      const index = state.posts.findIndex((p) => p.id === action.payload.id);
 
-      if (!Array.isArray(state.posts[index]?.likes)) {
-        state.posts[index].likes = [];
-      }
+      const isLike = state.posts[index].likes.find((name) => name === action.payload.user.name);
 
       if (!isLike) {
         state.posts[index].likes = [...state.posts[index].likes, action.payload.user.name];

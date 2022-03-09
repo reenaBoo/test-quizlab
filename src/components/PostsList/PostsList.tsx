@@ -7,8 +7,8 @@ function PostsList({ allPosts }: any) {
     <>
       <StyledList>
         {allPosts
-          .map((post: { name: string; message: string }, index: any) => {
-            return <Post key={`post_${index}`} name={post.name} message={post.message} index={index} />;
+          .map((post: { name: string; message: string; likes: string[]; id: number }, index: any) => {
+            return <Post key={`post_${index}`} name={post.name} message={post.message} likes={post.likes} id={post.id} />;
           })
           .reverse()}
       </StyledList>

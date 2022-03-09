@@ -7,9 +7,6 @@ function Header() {
       <StyledLink to="/posts" className={(isActive) => 'nav-link' + (!isActive ? ' inactive' : '')}>
         Все посты
       </StyledLink>
-      <StyledLink to="/subscription" className={(isActive) => 'nav-link' + (!isActive ? ' inactive' : '')}>
-        Подписки
-      </StyledLink>
     </StyledHeader>
   );
 }

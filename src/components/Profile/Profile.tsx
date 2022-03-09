@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   PopupContainer,
   StyledButton,
@@ -23,6 +23,7 @@ import { useNavigate } from 'react-router-dom';
 function Profile({ handleSignOut }: any) {
   const user = useSelector((state: RootState) => state.user.user);
   const userCheck = useSelector((state: RootState) => state.userName.userName);
+  // @ts-ignore
   const posts = useSelector((state: RootState) => state.posts.posts.filter((p) => p.name === userCheck.name));
   const navigate = useNavigate();
 
@@ -45,10 +46,6 @@ function Profile({ handleSignOut }: any) {
     handleClosePopup();
   }
 
-  useEffect(() => {
-    console.log('allposts', posts);
-  }, [posts]);
-
   function handleChange(e: any) {
     setPost(e.target.value);
   }
@@ -56,7 +53,8 @@ function Profile({ handleSignOut }: any) {
   return (
     <StyledProfile>
       <Container>
-        <Title as="button" onClick={() => console.log('hello')}>
+        <Title as="button">
+          {/*@ts-ignore*/}
           {userCheck.name}
         </Title>
       </Container>

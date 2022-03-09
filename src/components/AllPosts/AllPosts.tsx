@@ -9,6 +9,7 @@ import { checkName } from '../../store/userSlice';
 
 function AllPosts() {
   const posts = useSelector((state: RootState) => state.posts.posts);
+  // @ts-ignore
   const name = useSelector((state: RootState) => state.user.user.name);
   const dispatch = useDispatch();
   const navigate = useNavigate();

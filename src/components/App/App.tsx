@@ -8,16 +8,15 @@ import Login from '../Login/Login';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Profile from '../Profile/Profile';
-import { RootState } from '../../store';
 import AllPosts from '../AllPosts/AllPosts';
+import { RootState } from '../../store';
 
 function App() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const loggedIn = useSelector((state: RootState) => state.authenticated.authenticated);
 
   const [value, setValue] = useState('');
-  const users = useSelector((state: RootState) => state.users.users);
-  const user = useSelector((state: RootState) => state.user.user);
 
   const loginUser = () => {
     dispatch(addUser({ value }));
@@ -31,12 +30,10 @@ function App() {
   }
 
   useEffect(() => {
-    console.log(users);
-  }, [users]);
-
-  useEffect(() => {
-    console.log('curr', user);
-  }, [user]);
+    if (!loggedIn) {
+      navigate('/posts');
+    }
+  }, [loggedIn]);
 
   return (
     <ThemeProvider theme={theme}>

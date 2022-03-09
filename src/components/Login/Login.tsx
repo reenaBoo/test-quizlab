@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { StyledLogin, Form, Label, Input, Button, Span } from './Login.styles';
+import React from 'react';
+import { StyledLogin, Form, Label, Input, Button } from './Login.styles';
 import { ILogin } from './ILogin';
 
 function Login({ value, setValue, onSubmit }: ILogin) {
-  const [error, setError] = useState('');
-
   function handleChange(e: any) {
     setValue(e.target.value);
   }
@@ -28,7 +26,6 @@ function Login({ value, setValue, onSubmit }: ILogin) {
           onChange={handleChange}
           value={value}
         />
-        <Span>{error}</Span>
         <Button type="submit" disabled={!value}>
           Продолжить
         </Button>

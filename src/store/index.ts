@@ -22,6 +22,7 @@ const rootReducer = combineReducers({
   users: userReducer,
   user: userReducer,
   userName: userReducer,
+  authenticated: userReducer,
   posts: postReducer
 });
 
