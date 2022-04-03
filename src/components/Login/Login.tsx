@@ -1,6 +1,7 @@
 import React from 'react';
-import { StyledLogin, Form, Label, Input, Button } from './Login.styles';
+import { StyledLogin, Form, Label, Input, Button, StyledImg } from './Login.styles';
 import { ILogin } from './ILogin';
+import Peppa from '../../assets/images/peppa-twiiter.png'
 
 function Login({ value, setValue, onSubmit }: ILogin) {
   function handleChange(e: any) {
@@ -14,6 +15,7 @@ function Login({ value, setValue, onSubmit }: ILogin) {
 
   return (
     <StyledLogin>
+      <StyledImg src={Peppa} />
       <Form onSubmit={handleSubmit} noValidate>
         <Label htmlFor="name">Введите имя</Label>
         <Input

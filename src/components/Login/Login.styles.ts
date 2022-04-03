@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const StyledLogin = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0 auto;
-  padding: 282px 0;
+  padding: 150px 0;
 `
 
 export const Form = styled.form`
@@ -66,4 +67,10 @@ export const Button = styled.button`
   &:hover:disabled {
     opacity: 1;
   }
+`
+
+export const StyledImg = styled.img`
+  width: 300px;
+  height: 300px;
+  
 `
